@@ -1,7 +1,12 @@
-const { dbHost, dbUser, dbPassword, dbDatabase } = require("../config/config");
+const {
+  dbHost,
+  dbUser,
+  dbPassword,
+  dbDatabase,
+  dbPort,
+} = require("../config/config");
 
-const URI = `mysql://${dbUser}:${dbPassword}@${dbHost}/${dbDatabase}`;
-
+const URI = `mysql://${dbUser}:${dbPassword}@${dbHost}:${dbPort}/${dbDatabase}`;
 module.exports = {
   development: {
     url: URI,
