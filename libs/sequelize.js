@@ -1,11 +1,18 @@
 const { Sequelize } = require("sequelize");
-const { dbHost, dbUser, dbPassword, dbDatabase } = require("../config/config");
+const {
+  dbHost,
+  dbUser,
+  dbPassword,
+  dbDatabase,
+  dbPort,
+} = require("../config/config");
 const setupModels = require("../db/models");
 
-const URI = `mysql://${dbUser}:${dbPassword}@${dbHost}/${dbDatabase}`;
+const URI = `mysql://${dbUser}:${dbPassword}@${dbHost}:${dbPort}/${dbDatabase}`;
 
 const sequelize = new Sequelize(URI, {
   dialect: "mysql",
+  logging: console.log,
 });
 
 setupModels(sequelize);
