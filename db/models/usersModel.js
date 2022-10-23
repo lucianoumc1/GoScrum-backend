@@ -56,10 +56,10 @@ const usersSchema = {
 
 class User extends Model {
   static associate(models) {
-    this.belongsTo(models.Team, { as: "team" });
     this.hasOne(models.Auth, { as: "auth", foreignKey: "userId" });
-    this.hasOne(models.Team, { as: "leader", foreignKey: "teamLeader" });
     this.hasMany(models.Task, { as: "tasks", foreignKey: "createdBy" });
+    // this.belongsTo(models.Team, { as: "team" });
+    // this.hasOne(models.Team, { as: "leader", foreignKey: "teamLeader" });
   }
 
   static config(sequelize) {

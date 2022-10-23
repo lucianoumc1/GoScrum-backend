@@ -63,7 +63,7 @@ const tasksSchema = {
 class Task extends Model {
   static associate(models) {
     this.belongsTo(models.User, { as: "created_by", foreignKey: "createdBy" });
-    this.belongsTo(models.Team, { as: "team" });
+    // this.belongsTo(models.Team, { as: "team" });
   }
 
   static config(sequelize) {

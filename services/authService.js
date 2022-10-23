@@ -20,6 +20,7 @@ class AuthService {
   }
 
   async create(data) {
+    // eslint-disable-next-line no-param-reassign
     data.password = await encrypt(data.password);
 
     const response = await models.Auth.create(data, {
